@@ -8,9 +8,6 @@ import akka.event.Logging
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
 
-/**
-  * Created by Alex on 2/4/16.
-  */
 class FileReaderActor extends Actor {
 
   val log = Logging.getLogger(context.system, this)
@@ -23,7 +20,7 @@ class FileReaderActor extends Actor {
       sender() ! words.toList
       self ! PoisonPill
     }
-    case _ => log.info("Still waiting for a valid path")
+    case _ => log.info("Still waiting for a text file")
   }
 
 }
